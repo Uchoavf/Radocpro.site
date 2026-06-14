@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f9fafb;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Estilos herdados do RADOC (quando integrado) */
+.radoc-app {
+  background: white;
+}
+
+.radoc-app table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.radoc-app input,
+.radoc-app select,
+.radoc-app textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+}
