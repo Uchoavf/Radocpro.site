@@ -1,6 +1,12 @@
-# RADOC Service
+# radoc.pro
 
-Plataforma web para preenchimento automatizado de RADOCs (Relatório de Atividades Docentes) da UFRA usando IA.
+Plataforma web independente para preenchimento automatizado de RADOCs (Relatório de Atividades Docentes) usando IA.
+
+## ⚠️ Disclaimer
+
+**radoc.pro** é um serviço **independente** e não é afiliado a nenhuma instituição de ensino superior. É desenvolvido para auxiliar docentes no preenchimento de RADOCs de forma geral, seguindo normas e padrões de relatórios acadêmicos.
+
+---
 
 ## 🚀 Quick Start
 

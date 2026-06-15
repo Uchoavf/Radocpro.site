@@ -17,7 +17,7 @@ export default function Footer() {
               <span className="font-serif font-semibold text-lg">radoc.pro</span>
             </div>
             <p className="text-sm text-radoc-cream-2 mb-6">
-              Assessoria especializada para preenchimento de RADOCs de docentes da UFRA.
+              Assessoria especializada para preenchimento de RADOCs. Serviço independente.
             </p>
             <div className="flex gap-3">
               <WhatsAppButton variant="icon" message="Olá! Gostaria de saber mais sobre radoc.pro" />

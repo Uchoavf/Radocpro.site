@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'radoc.pro — Preencha seu RADOC automaticamente',
-  description: 'Assessoria especializada para montagem de RADOCs. Extraímos dados de comprovantes e geramos relatórios completos prontos para SIPAC.',
+  description: 'Serviço independente de preenchimento de RADOCs. Extraímos dados de comprovantes com IA e geramos relatórios completos prontos para envio.',
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
 }

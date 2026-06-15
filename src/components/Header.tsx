@@ -15,7 +15,7 @@ export default function Header() {
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="font-serif font-semibold text-lg text-radoc-green">radoc.pro</span>
-            <span className="font-mono text-xs text-radoc-green-deep tracking-wide">Docentes · UFRA</span>
+            <span className="font-mono text-xs text-radoc-green-deep tracking-wide">Para Docentes</span>
           </div>
         </Link>
 

@@ -18,7 +18,7 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <p className="font-mono text-radoc-gold-soft text-sm tracking-widest mb-4">
-              DOCENTES · UFRA
+              PREENCHA SEU RADOC EM MINUTOS
             </p>
 
             <h1 className="font-serif text-6xl md:text-7xl font-bold text-radoc-cream mb-6 leading-tight">
@@ -109,7 +109,7 @@ export default function Home() {
 
             <div className="mt-16 pt-12 border-t-2 border-radoc-gold">
               <p className="font-mono text-radoc-green-deep text-sm tracking-wider">
-                ASSESSORIA ESPECIALIZADA PARA RADOC · UFRA
+                RADOC.PRO — SERVIÇO INDEPENDENTE
               </p>
             </div>
           </div>

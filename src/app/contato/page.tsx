@@ -46,9 +46,9 @@ export default function ContatoPage() {
                 <div>
                   <h3 className="font-sans font-semibold text-radoc-green mb-3">Sobre radoc.pro</h3>
                   <p className="text-radoc-ink leading-relaxed">
-                    Somos especialistas em preenchimento de RADOCs para docentes da UFRA.
+                    Somos especialistas em preenchimento de RADOCs para docentes universitários.
                     Utilizamos IA para extrair dados de comprovantes e gerar relatórios
-                    completos, de acordo com as normas da CPPD.
+                    completos, de acordo com as normas de cada instituição.
                   </p>
                 </div>
 
