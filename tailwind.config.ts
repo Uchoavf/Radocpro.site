@@ -9,16 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ufra: {
-          green: '#2e7d32',
-          gold: '#DAA520',
+        radoc: {
+          green: '#1c5640',
+          'green-deep': '#143c2d',
+          gold: '#bd9748',
+          'gold-soft': '#d8bd86',
+          red: '#a8392e',
+          cream: '#f7f3ea',
+          'cream-2': '#efe8d8',
+          ink: '#22312a',
         },
-        status: {
-          success: '#2e7d32',
-          warning: '#e65100',
-          error: '#c62828',
-          dark: '#b71c1c',
-        },
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['Hanken Grotesk', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
     },
   },

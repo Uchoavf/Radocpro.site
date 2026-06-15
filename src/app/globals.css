@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --green: #1c5640;
+  --green-deep: #143c2d;
+  --gold: #bd9748;
+  --gold-soft: #d8bd86;
+  --red: #a8392e;
+  --cream: #f7f3ea;
+  --cream-2: #efe8d8;
+  --ink: #22312a;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +24,19 @@ html {
 }
 
 body {
-  background: #f9fafb;
-  color: #1f2937;
-  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Tipografia base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: var(--green);
+}
+
+p {
+  line-height: 1.6;
 }
 
 /* Estilos herdados do RADOC (quando integrado) */
@@ -33,4 +54,33 @@ body {
 .radoc-app textarea {
   font-family: inherit;
   font-size: 0.9rem;
+}
+
+/* Decoração: regra com losangos (como no guia visual) */
+.rule {
+  width: 88px;
+  height: 2px;
+  background: var(--gold);
+  margin: 46px 0;
+  position: relative;
+}
+
+.rule::before,
+.rule::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: translateY(-50%) rotate(45deg);
+  border-radius: 1px;
+}
+
+.rule::before {
+  left: -26px;
+}
+
+.rule::after {
+  right: -26px;
 }
