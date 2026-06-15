@@ -1,3 +1,5 @@
+import WhatsAppButton from './WhatsAppButton'
+
 export default function Footer() {
   return (
     <footer className="bg-radoc-green-deep text-radoc-cream mt-auto border-t-2 border-radoc-gold">
@@ -14,9 +16,12 @@ export default function Footer() {
               </div>
               <span className="font-serif font-semibold text-lg">radoc.pro</span>
             </div>
-            <p className="text-sm text-radoc-cream-2">
+            <p className="text-sm text-radoc-cream-2 mb-6">
               Assessoria especializada para preenchimento de RADOCs de docentes da UFRA.
             </p>
+            <div className="flex gap-3">
+              <WhatsAppButton variant="icon" message="Olá! Gostaria de saber mais sobre radoc.pro" />
+            </div>
           </div>
 
           {/* Produto */}
@@ -39,12 +44,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Contato */}
           <div>
-            <h4 className="font-sans font-semibold text-radoc-gold-soft mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-radoc-cream-2">
-              <li><a href="/termos" className="hover:text-radoc-gold transition">Termos de uso</a></li>
-              <li><a href="/privacidade" className="hover:text-radoc-gold transition">Política de privacidade</a></li>
+            <h4 className="font-sans font-semibold text-radoc-gold-soft mb-4">Contato</h4>
+            <ul className="space-y-3 text-sm text-radoc-cream-2">
+              <li>
+                <p className="font-mono text-radoc-gold-soft mb-1">(91) 9 8156-3432</p>
+                <a
+                  href="https://wa.me/5591981563432?text=Olá! Gostaria de mais informações sobre radoc.pro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-400 hover:text-green-300 transition text-xs font-semibold"
+                >
+                  Abrir WhatsApp →
+                </a>
+              </li>
             </ul>
           </div>
         </div>

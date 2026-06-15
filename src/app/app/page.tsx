@@ -1,11 +1,13 @@
 import Header from '@/src/components/Header'
 import Footer from '@/src/components/Footer'
+import WhatsAppButton from '@/src/components/WhatsAppButton'
 
 export default function AppPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
+        <WhatsAppButton variant="floating" message="Olá! Preciso de ajuda com o RADOC" />
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
             <h2 className="text-lg font-bold text-blue-900 mb-2">🚀 App em desenvolvimento</h2>
