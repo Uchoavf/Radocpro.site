@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Fundo verde -->
+  <rect width="512" height="512" fill="#1c5640" rx="100"/>
+
+  <!-- Texto "Rp" -->
+  <text x="256" y="360" font-family="Cormorant Garamond, serif" font-size="280" font-weight="600" text-anchor="middle" dominant-baseline="middle">
+    <tspan fill="#f7f3ea">R</tspan><tspan fill="#d8bd86">p</tspan>
+  </text>
+</svg>
