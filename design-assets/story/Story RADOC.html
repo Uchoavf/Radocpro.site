@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Story RADOC — Assessoria UFRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#1c5640;
+    --green-deep:#143c2d;
+    --gold:#bd9748;
+    --gold-soft:#d8bd86;
+    --red:#a8392e;
+    --cream:#f7f3ea;
+    --cream-2:#efe8d8;
+    --ink:#22312a;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    background:#0b0b0b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  }
+  #stage{
+    width:1080px;
+    height:1920px;
+    transform-origin:center center;
+    position:relative;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #fbf8f1 0%, var(--cream) 46%, var(--cream-2) 100%);
+    overflow:hidden;
+  }
+
+  /* delicate certificate frame */
+  .frame{
+    position:absolute;
+    inset:40px;
+    border:1.5px solid var(--gold);
+    pointer-events:none;
+  }
+  .frame::after{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:0.75px solid rgba(189,151,72,0.45);
+  }
+  .corner{
+    position:absolute;
+    width:30px; height:30px;
+    border:2px solid var(--gold);
+  }
+  .corner.tl{ top:30px; left:30px; border-right:0; border-bottom:0; }
+  .corner.tr{ top:30px; right:30px; border-left:0; border-bottom:0; }
+  .corner.bl{ bottom:30px; left:30px; border-right:0; border-top:0; }
+  .corner.br{ bottom:30px; right:30px; border-left:0; border-top:0; }
+
+  /* faint watermark monogram */
+  .watermark{
+    position:absolute;
+    right:0px; bottom:460px;
+    font-family:"Cormorant Garamond", serif;
+    font-weight:600;
+    font-size:483px;
+    line-height:1;
+    color:rgba(28,86,64,0.07);
+    user-select:none;
+    pointer-events:none;
+  }
+  .watermark .p{ color:rgba(189,151,72,0.10); }
+
+  .content{
+    position:absolute;
+    inset:0;
+    padding:188px 118px 196px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  /* ---- top / brand ---- */
+  .brand{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+  }
+  .rp-chip{
+    width:124px; height:124px;
+    border-radius:30px;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 12px 28px rgba(20,60,45,0.22);
+  }
+  .rp-chip .rp{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:600;
+    font-size:70px;
+    line-height:1;
+    color:var(--cream);
+  }
+  .rp-chip .rp .p{ color:var(--gold-soft); }
+  .brand-name{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:600;
+    font-size:48px;
+    line-height:1;
+    color:var(--green);
+  }
+  .brand-name .bdot{ color:var(--gold); }
+  .eyebrow{
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:0.34em;
+    text-transform:uppercase;
+    color:var(--green);
+    white-space:nowrap;
+  }
+  .eyebrow .dot{ color:var(--red); }
+
+  /* ---- hero ---- */
+  .hero{
+    margin-top:auto;
+    margin-bottom:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .pre{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:62px;
+    color:var(--ink);
+    line-height:1;
+    white-space:nowrap;
+  }
+  .title{
+    font-family:"Cormorant Garamond", serif;
+    font-weight:600;
+    font-size:208px;
+    line-height:0.9;
+    color:var(--green);
+    margin:22px 0 10px;
+    letter-spacing:0.005em;
+    white-space:nowrap;
+  }
+  .subtitle{
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:0.34em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .rule{
+    width:88px;
+    height:2px;
+    background:var(--gold);
+    margin:46px 0;
+    position:relative;
+  }
+  .rule::before, .rule::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    transform:translateY(-50%) rotate(45deg);
+    border-radius:1px;
+  }
+  .rule::before{ left:-26px; }
+  .rule::after{ right:-26px; }
+
+  .lede{
+    font-family:"Cormorant Garamond", serif;
+    font-size:50px;
+    line-height:1.32;
+    color:var(--ink);
+    max-width:760px;
+    text-wrap:balance;
+  }
+  .lede b{
+    font-weight:600;
+    color:var(--green);
+  }
+  .scope{
+    margin-top:40px;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--green);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    max-width:760px;
+  }
+  .scope .sep{
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--red);
+  }
+
+  /* ---- CTA ---- */
+  .cta-wrap{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
+  }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:22px;
+    background:var(--green);
+    color:var(--cream);
+    padding:34px 58px;
+    border-radius:100px;
+    box-shadow:0 18px 40px rgba(20,60,45,0.28);
+  }
+  .cta .wa{
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--cream);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+  }
+  .cta .wa svg{ width:28px; height:28px; }
+  .cta .label{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+  .phone{
+    font-family:"JetBrains Mono", monospace;
+    font-size:30px;
+    font-weight:500;
+    letter-spacing:0.04em;
+    color:var(--green-deep);
+  }
+  .foot{
+    font-size:21px;
+    font-weight:500;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+</style>
+</head>
+<body>
+  <div id="stage" data-screen-label="Story RADOC">
+    <div class="watermark">R<span class="p">p</span></div>
+    <div class="frame"></div>
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+
+    <div class="content">
+      <div class="brand">
+        <div class="rp-chip"><span class="rp">R<span class="p">p</span></span></div>
+        <div class="brand-name">radoc<span class="bdot">.pro</span></div>
+        <div class="eyebrow">Docentes</div>
+      </div>
+
+      <div class="hero">
+        <div class="pre">Faço o seu</div>
+        <div class="title">RADOC</div>
+        <div class="subtitle">Relatório de Atividades Docentes</div>
+
+        <div class="rule"></div>
+
+        <p class="lede">Você reúne os comprovantes. <b>Eu organizo, monto e entrego</b> o seu relatório completo, com todos os cálculos no padrão vigente.</p>
+
+        <div class="scope">
+          <span>Ensino</span><span class="sep"></span>
+          <span>Pesquisa</span><span class="sep"></span>
+          <span>Extensão</span><span class="sep"></span>
+          <span>Gestão</span><span class="sep"></span>
+          <span>Portarias</span><span class="sep"></span>
+          <span>Afastamentos</span>
+        </div>
+      </div>
+
+      <div class="cta-wrap">
+        <a href="https://wa.me/5591981563432?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20RADOC." target="_blank" style="text-decoration:none">
+        <div class="cta">
+          <span class="wa">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M16 4C9.4 4 4 9.4 4 16c0 2.1.6 4.1 1.6 5.9L4 28l6.3-1.6C12 27.4 14 28 16 28c6.6 0 12-5.4 12-12S22.6 4 16 4z" fill="#1c5640"/>
+              <path d="M22 19.2c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="#f7f3ea"/>
+            </svg>
+          </span>
+          <span class="label">Falar no WhatsApp</span>
+        </div>
+        </a>
+        <div class="phone">( 91 ) 9 8156&#8209;3432</div>
+        <div class="foot">Atendimento online · resposta rápida</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  (function(){
+    var stage = document.getElementById('stage');
+    function fit(){
+      var s = Math.min(window.innerWidth/1080, window.innerHeight/1920);
+      stage.style.transform = 'scale(' + s + ')';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+  })();
+</script>
+</body>
+</html>

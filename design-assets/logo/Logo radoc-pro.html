@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>radoc.pro — Logomarca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#1c5640;
+    --green-deep:#143c2d;
+    --gold:#bd9748;
+    --gold-soft:#d8bd86;
+    --red:#a8392e;
+    --cream:#f7f3ea;
+    --cream-2:#efe8d8;
+    --ink:#22312a;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background:#e7e0d2;
+    font-family:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    padding:72px 0 96px;
+  }
+  .wrap{ width:min(1180px, 100% - 64px); margin:0 auto; }
+
+  .page-head{ text-align:center; margin-bottom:60px; }
+  .page-head .kicker{
+    font-size:14px; font-weight:700; letter-spacing:0.42em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px;
+  }
+  .page-head h1{
+    font-family:"Cormorant Garamond",serif; font-weight:600; font-size:58px; color:var(--green);
+  }
+  .page-head h1 .pro{ color:var(--gold); }
+  .page-head p{ margin-top:12px; font-size:17px; color:#6b6357; }
+
+  .concept{ margin-bottom:52px; }
+  .concept-bar{
+    display:flex; align-items:center; gap:30px; margin-bottom:20px; padding-left:4px;
+  }
+  .concept-bar .num{
+    font-family:"JetBrains Mono",monospace; font-size:15px; font-weight:500; color:var(--gold);
+  }
+  .concept-bar .name{
+    font-family:"Cormorant Garamond",serif; font-style:italic; font-size:30px; color:var(--green);
+    white-space:nowrap;
+  }
+  .concept-bar .desc{ font-size:14px; color:#7a7264; }
+
+  .row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .tile{
+    border-radius:18px; display:flex; align-items:center; justify-content:center;
+    min-height:240px; padding:24px; position:relative; overflow:hidden;
+  }
+  .tile.light{ background:var(--cream); border:1px solid #e3d9c4; }
+  .tile.dark{ background:var(--green); }
+  .tile .tag{
+    position:absolute; left:18px; top:16px; font-family:"JetBrains Mono",monospace;
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#a99e88;
+  }
+  .tile.dark .tag{ color:rgba(247,243,234,0.55); }
+
+  .mono-row{ display:flex; gap:14px; margin-top:14px; }
+  .mono-box{
+    flex:1; background:var(--cream-2); border:1px solid #e3d9c4; border-radius:18px;
+    min-height:150px; display:flex; align-items:center; justify-content:center; gap:40px;
+  }
+  .fav{ display:flex; flex-direction:column; align-items:center; gap:12px; }
+  .fav .lab{ font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:0.1em; color:#8a8071; }
+
+  /* ============ logo bits ============ */
+  .lockup{ display:flex; align-items:center; gap:18px; }
+  .stacked{ flex-direction:column; gap:14px; text-align:center; }
+
+  .wm-serif{
+    font-family:"Cormorant Garamond",serif; font-weight:600; letter-spacing:0.004em;
+    line-height:0.9; color:var(--green); font-size:62px;
+  }
+  .wm-serif .pro{ color:var(--gold); font-weight:500; }
+  .tile.dark .wm-serif{ color:var(--cream); }
+  .tile.dark .wm-serif .pro{ color:var(--gold-soft); }
+
+  .wm-sans{
+    font-family:"Hanken Grotesk",sans-serif; font-weight:800; letter-spacing:-0.03em;
+    line-height:0.9; color:var(--green); font-size:42px;
+  }
+  .wm-sans .pro{ color:var(--gold); }
+  .tile.dark .wm-sans{ color:var(--cream); }
+  .tile.dark .wm-sans .pro{ color:var(--gold-soft); }
+
+  .seal{ width:98px; height:98px; flex:0 0 auto; position:relative; }
+  .seal svg{ width:100%; height:100%; display:block; }
+  .seal .R{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:"Cormorant Garamond",serif; font-weight:600; font-size:52px; color:var(--green);
+  }
+  .tile.dark .seal .R{ color:var(--cream); }
+
+  .ctile{
+    width:84px; height:84px; flex:0 0 auto; border-radius:22px; background:var(--green);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tile.dark .ctile{ background:var(--cream); }
+  .ctile svg{ width:46px; height:46px; }
+
+  /* monogram chips */
+  .chip{
+    width:118px; height:118px; border-radius:28px; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px rgba(20,60,45,0.18);
+  }
+  .chip.circle{ border-radius:50%; box-shadow:none; }
+  .chip .glyph{
+    font-family:"Cormorant Garamond",serif; font-weight:600; font-size:62px; line-height:1;
+  }
+
+  .sub{
+    font-family:"Hanken Grotesk",sans-serif; font-weight:600; font-size:16px;
+    letter-spacing:0.42em; text-transform:uppercase; color:var(--gold);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="page-head">
+      <div class="kicker">Identidade Visual</div>
+      <h1>radoc<span class="pro">.pro</span></h1>
+      <p>Três direções para você escolher — fundo claro, escuro e aplicações de ícone.</p>
+    </div>
+
+    <!-- ============ CONCEITO 1 — SELO ============ -->
+    <section class="concept">
+      <div class="concept-bar">
+        <span class="num">01</span>
+        <span class="name">Selo Acadêmico</span>
+        <span class="desc">Serifada e institucional — conversa direto com o universo docente.</span>
+      </div>
+      <div class="row">
+        <div class="tile light">
+          <span class="tag">fundo claro</span>
+          <div class="lockup">
+            <div class="seal">
+              <svg viewBox="0 0 98 98" fill="none">
+                <circle cx="49" cy="49" r="47" stroke="#bd9748" stroke-width="2"/>
+                <circle cx="49" cy="49" r="40" stroke="#bd9748" stroke-width="1" opacity="0.5"/>
+              </svg>
+              <span class="R">R</span>
+            </div>
+            <div class="wm-serif">radoc<span class="pro">.pro</span></div>
+          </div>
+        </div>
+        <div class="tile dark">
+          <span class="tag">fundo escuro</span>
+          <div class="lockup">
+            <div class="seal">
+              <svg viewBox="0 0 98 98" fill="none">
+                <circle cx="49" cy="49" r="47" stroke="#d8bd86" stroke-width="2"/>
+                <circle cx="49" cy="49" r="40" stroke="#d8bd86" stroke-width="1" opacity="0.5"/>
+              </svg>
+              <span class="R">R</span>
+            </div>
+            <div class="wm-serif">radoc<span class="pro">.pro</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mono-row">
+        <div class="mono-box">
+          <div class="fav">
+            <div class="chip circle" style="background:var(--cream);border:2px solid var(--gold)"><span class="glyph" style="color:var(--green)">R</span></div>
+            <span class="lab">selo claro</span>
+          </div>
+          <div class="fav">
+            <div class="chip circle" style="background:var(--green)"><span class="glyph" style="color:var(--cream)">R</span></div>
+            <span class="lab">selo verde</span>
+          </div>
+          <div class="fav">
+            <div class="chip circle" style="background:var(--gold)"><span class="glyph" style="color:var(--green-deep)">R</span></div>
+            <span class="lab">selo ouro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONCEITO 2 — MODERNO ============ -->
+    <section class="concept">
+      <div class="concept-bar">
+        <span class="num">02</span>
+        <span class="name">Moderno .pro</span>
+        <span class="desc">Grotesca com o selo de “relatório concluído” — limpo e tecnológico.</span>
+      </div>
+      <div class="row">
+        <div class="tile light">
+          <span class="tag">fundo claro</span>
+          <div class="lockup">
+            <div class="ctile">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M12 25 l8 8 l16 -19" stroke="#f7f3ea" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="wm-sans">radoc<span class="pro">.pro</span></div>
+          </div>
+        </div>
+        <div class="tile dark">
+          <span class="tag">fundo escuro</span>
+          <div class="lockup">
+            <div class="ctile">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M12 25 l8 8 l16 -19" stroke="#1c5640" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="wm-sans">radoc<span class="pro">.pro</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mono-row">
+        <div class="mono-box">
+          <div class="fav">
+            <div class="chip" style="background:var(--green)">
+              <svg viewBox="0 0 48 48" fill="none" style="width:58px;height:58px"><path d="M12 25 l8 8 l16 -19" stroke="#d8bd86" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="lab">ícone verde</span>
+          </div>
+          <div class="fav">
+            <div class="chip" style="background:var(--cream);border:1px solid #e3d9c4">
+              <svg viewBox="0 0 48 48" fill="none" style="width:58px;height:58px"><path d="M12 25 l8 8 l16 -19" stroke="#1c5640" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="lab">ícone claro</span>
+          </div>
+          <div class="fav">
+            <div class="chip" style="background:var(--gold)">
+              <svg viewBox="0 0 48 48" fill="none" style="width:58px;height:58px"><path d="M12 25 l8 8 l16 -19" stroke="#143c2d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="lab">ícone ouro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONCEITO 3 — MONOGRAMA ============ -->
+    <section class="concept">
+      <div class="concept-bar">
+        <span class="num">03</span>
+        <span class="name">Monograma Rp</span>
+        <span class="desc">Marca compacta com lockup vertical — ótima para carimbo e assinatura.</span>
+      </div>
+      <div class="row">
+        <div class="tile light">
+          <span class="tag">fundo claro</span>
+          <div class="lockup stacked">
+            <div class="chip" style="background:var(--green)"><span class="glyph" style="color:var(--cream)">R<span style="color:var(--gold-soft)">p</span></span></div>
+            <div class="sub">radoc.pro</div>
+          </div>
+        </div>
+        <div class="tile dark">
+          <span class="tag">fundo escuro</span>
+          <div class="lockup stacked">
+            <div class="chip" style="background:var(--gold)"><span class="glyph" style="color:var(--green-deep)">R<span style="color:var(--cream)">p</span></span></div>
+            <div class="sub" style="color:var(--gold-soft)">radoc.pro</div>
+          </div>
+        </div>
+      </div>
+      <div class="mono-row">
+        <div class="mono-box">
+          <div class="fav">
+            <div class="chip" style="background:var(--green)"><span class="glyph" style="color:var(--cream)">R<span style="color:var(--gold-soft)">p</span></span></div>
+            <span class="lab">verde</span>
+          </div>
+          <div class="fav">
+            <div class="chip" style="background:var(--gold)"><span class="glyph" style="color:var(--green-deep)">R<span style="color:var(--cream)">p</span></span></div>
+            <span class="lab">ouro</span>
+          </div>
+          <div class="fav">
+            <div class="chip" style="background:var(--cream);border:1px solid #e3d9c4"><span class="glyph" style="color:var(--green)">R<span style="color:var(--gold)">p</span></span></div>
+            <span class="lab">claro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

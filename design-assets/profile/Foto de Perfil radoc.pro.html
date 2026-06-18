@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foto de Perfil — radoc.pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=Hanken+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#1c5640; --green-deep:#143c2d;
+    --gold:#bd9748; --gold-soft:#d8bd86;
+    --cream:#f7f3ea; --cream-2:#efe8d8; --ink:#22312a;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background:#e7e0d2;
+    font-family:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; padding:64px 32px 96px; gap:64px;
+  }
+
+  /* header */
+  .header{ text-align:center; }
+  .header .kicker{ font-size:13px; font-weight:700; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .header h1{ font-family:"Cormorant Garamond",serif; font-size:46px; font-weight:600; color:var(--green); }
+  .header p{ margin-top:10px; font-size:15px; color:#6b6357; max-width:480px; line-height:1.5; }
+
+  /* options row */
+  .options{ display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap; justify-content:center; }
+  .option{ display:flex; flex-direction:column; align-items:center; gap:20px; }
+  .badge{
+    font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+    padding:5px 14px; border-radius:100px;
+  }
+  .badge.rec{ background:var(--green); color:var(--cream); }
+  .badge.alt{ background:transparent; border:1px solid #b5a990; color:#7a7264; }
+
+  /* circle preview — as whatsapp shows it */
+  .circle-wrap{ position:relative; }
+  .profile-circle{
+    width:280px; height:280px; border-radius:50%; overflow:hidden;
+    box-shadow:0 16px 40px rgba(0,0,0,0.18);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .profile-circle.green-bg{ background:var(--green); }
+  .profile-circle.cream-bg{ background:var(--cream); border:3px solid var(--gold); }
+  .profile-circle.gold-bg{ background:var(--gold); }
+
+  .glyph{
+    font-family:"Cormorant Garamond",serif; font-weight:600;
+    font-size:148px; line-height:1; user-select:none;
+  }
+  .glyph .p{ }
+
+  /* tiny chat simulation */
+  .chat-sim{
+    background:#fff; border-radius:14px; padding:14px 16px;
+    display:flex; align-items:center; gap:12px;
+    width:280px; box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+  .chat-avatar{ width:48px; height:48px; border-radius:50%; overflow:hidden; flex:0 0 auto; display:flex; align-items:center; justify-content:center; }
+  .chat-avatar.green-bg{ background:var(--green); }
+  .chat-avatar.cream-bg{ background:var(--cream); border:1.5px solid var(--gold); }
+  .chat-avatar.gold-bg{ background:var(--gold); }
+  .chat-glyph{ font-family:"Cormorant Garamond",serif; font-weight:600; font-size:24px; line-height:1; }
+  .chat-info{ flex:1; }
+  .chat-name{ font-size:14px; font-weight:700; color:#111; }
+  .chat-msg{ font-size:12px; color:#888; margin-top:2px; }
+  .chat-label{
+    font-family:"JetBrains Mono",monospace; font-size:10px; color:#aaa;
+    text-align:center; margin-top:6px; letter-spacing:0.08em;
+  }
+
+  /* option label */
+  .opt-label{ font-size:15px; font-weight:600; color:var(--ink); text-align:center; }
+  .opt-desc{ font-size:13px; color:#7a7264; text-align:center; max-width:200px; line-height:1.4; }
+
+  /* divider */
+  .divider{ width:min(800px,100%); height:1px; background:rgba(0,0,0,0.1); }
+
+  /* export preview */
+  .export-section{ display:flex; flex-direction:column; align-items:center; gap:24px; }
+  .export-section h2{ font-family:"Cormorant Garamond",serif; font-size:32px; font-weight:600; color:var(--green); }
+  .export-section p{ font-size:14px; color:#6b6357; text-align:center; max-width:400px; line-height:1.5; }
+
+  /* 800×800 final art */
+  .art-wrap{ position:relative; }
+  .art{
+    width:400px; height:400px;
+    background:var(--green);
+    border-radius:200px; /* circle preview */
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 24px 60px rgba(20,60,45,0.3);
+    overflow:hidden;
+  }
+  .art .big-glyph{
+    font-family:"Cormorant Garamond",serif; font-weight:600;
+    font-size:224px; line-height:1; color:var(--cream); user-select:none;
+  }
+  .art .big-glyph .p{ color:var(--gold-soft); }
+
+  /* size indicators */
+  .sizes{ display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
+  .size-chip{
+    background:var(--cream); border:1px solid #ddd5c4; border-radius:100px;
+    padding:8px 18px; font-size:13px; font-weight:600; color:var(--ink);
+    display:flex; align-items:center; gap:8px;
+  }
+  .size-chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--green); }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="kicker">Foto de Perfil · WhatsApp</div>
+    <h1>Escolha a versão</h1>
+    <p>Cada opção foi testada em tamanho real (48px) e tamanho grande. A ★ recomendada é a que melhor funciona nas duas situações.</p>
+  </div>
+
+  <div class="options">
+
+    <!-- OPÇÃO 1 — RECOMENDADA -->
+    <div class="option">
+      <span class="badge rec">★ Recomendada</span>
+      <div class="circle-wrap">
+        <div class="profile-circle green-bg">
+          <span class="glyph" style="color:var(--cream)">R<span class="p" style="color:var(--gold-soft)">p</span></span>
+        </div>
+      </div>
+      <div class="chat-sim">
+        <div class="chat-avatar green-bg">
+          <span class="chat-glyph" style="color:var(--cream)">R<span style="color:var(--gold-soft)">p</span></span>
+        </div>
+        <div class="chat-info">
+          <div class="chat-name">radoc.pro</div>
+          <div class="chat-msg">Olá! Gostaria de info...</div>
+        </div>
+      </div>
+      <div class="chat-label">↑ como aparece na lista</div>
+      <div class="opt-label">Verde · Rp</div>
+      <div class="opt-desc">Contraste máximo, leitura imediata. Consistente com o story.</div>
+    </div>
+
+    <!-- OPÇÃO 2 -->
+    <div class="option">
+      <span class="badge alt">Alternativa</span>
+      <div class="circle-wrap">
+        <div class="profile-circle cream-bg">
+          <span class="glyph" style="color:var(--green)">R<span class="p" style="color:var(--gold)">p</span></span>
+        </div>
+      </div>
+      <div class="chat-sim">
+        <div class="chat-avatar cream-bg">
+          <span class="chat-glyph" style="color:var(--green)">R<span style="color:var(--gold)">p</span></span>
+        </div>
+        <div class="chat-info">
+          <div class="chat-name">radoc.pro</div>
+          <div class="chat-msg">Olá! Gostaria de info...</div>
+        </div>
+      </div>
+      <div class="chat-label">↑ como aparece na lista</div>
+      <div class="opt-label">Creme · Rp</div>
+      <div class="opt-desc">Elegante e suave. Melhor em fundo escuro.</div>
+    </div>
+
+    <!-- OPÇÃO 3 -->
+    <div class="option">
+      <span class="badge alt">Alternativa</span>
+      <div class="circle-wrap">
+        <div class="profile-circle gold-bg">
+          <span class="glyph" style="color:var(--green-deep)">R<span class="p" style="color:var(--cream)">p</span></span>
+        </div>
+      </div>
+      <div class="chat-sim">
+        <div class="chat-avatar gold-bg">
+          <span class="chat-glyph" style="color:var(--green-deep)">R<span style="color:var(--cream)">p</span></span>
+        </div>
+        <div class="chat-info">
+          <div class="chat-name">radoc.pro</div>
+          <div class="chat-msg">Olá! Gostaria de info...</div>
+        </div>
+      </div>
+      <div class="chat-label">↑ como aparece na lista</div>
+      <div class="opt-label">Ouro · Rp</div>
+      <div class="opt-desc">Premium e marcante. Diferente da maioria.</div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="export-section">
+    <h2>Arte final — Verde Rp <span style="color:var(--gold);font-style:italic">(recomendada)</span></h2>
+    <p>Tire um print desta área circular ou peça o PNG. O WhatsApp aceita 640×640px ou maior — qualquer navegador renderiza na resolução real.</p>
+    <div class="art">
+      <span class="big-glyph">R<span class="p">p</span></span>
+    </div>
+    <div class="sizes">
+      <div class="size-chip"><span class="dot"></span>800 × 800 px (ideal)</div>
+      <div class="size-chip"><span class="dot"></span>Proporção 1:1 quadrado</div>
+      <div class="size-chip"><span class="dot"></span>WhatsApp recorta em círculo</div>
+    </div>
+  </div>
+
+</body>
+</html>
