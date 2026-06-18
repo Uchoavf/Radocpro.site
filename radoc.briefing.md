@@ -104,6 +104,12 @@ bg-gradient-to-br from-radoc-green via-radoc-green to-radoc-green-deep
 - **Tamanho padrão:** 12×12px (w-12 h-12)
 - **Borderradius:** rounded-lg
 
+**Favicon (SVG):**
+- Localização: `public/favicon.svg`
+- Monograma Rp centralizado (256, 256)
+- Font-size: 320px
+- Aparece na aba do navegador, favoritos e histórico
+
 **Chip da logomarca:**
 ```tsx
 <div className="w-12 h-12 bg-radoc-green rounded-lg flex items-center justify-center shadow-md">
@@ -311,6 +317,8 @@ vercel
 - [x] Disclaimer adicionado
 - [x] GitHub sincronizado (privado)
 - [x] SSH configurado
+- [x] Design assets adicionados (Story, Logo, Profile, Docs)
+- [x] Favicon Rp criado e centralizado
 
 ### ⏳ Próximos passos (Fase 2)
 - [ ] Integrar RADOC App (/app) — iframe ou React component
