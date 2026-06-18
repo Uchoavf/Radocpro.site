@@ -2,8 +2,8 @@
   <!-- Fundo verde -->
   <rect width="512" height="512" fill="#1c5640" rx="100"/>
 
-  <!-- Texto "Rp" centralizado -->
-  <text x="256" y="280" font-family="Cormorant Garamond, serif" font-size="300" font-weight="600" text-anchor="middle" dominant-baseline="central" letter-spacing="-8">
+  <!-- Texto "Rp" no centro perfeito -->
+  <text x="256" y="256" font-family="Cormorant Garamond, serif" font-size="320" font-weight="600" text-anchor="middle" dominant-baseline="middle" letter-spacing="-12">
     <tspan fill="#f7f3ea">R</tspan><tspan fill="#d8bd86">p</tspan>
   </text>
 </svg>
