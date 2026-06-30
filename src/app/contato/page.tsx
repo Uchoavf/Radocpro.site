@@ -1,6 +1,7 @@
 import Header from '@/src/components/Header'
 import Footer from '@/src/components/Footer'
 import WhatsAppButton from '@/src/components/WhatsAppButton'
+import { WHATSAPP_MESSAGE_HELP } from '@/src/lib/constants'
 
 export default function ContatoPage() {
   return (

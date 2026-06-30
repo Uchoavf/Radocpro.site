@@ -1,4 +1,5 @@
 import WhatsAppButton from './WhatsAppButton'
+import { whatsappLink } from '@/src/lib/constants'
 
 export default function Footer() {
   return (
@@ -50,7 +51,7 @@ export default function Footer() {
               <li>
                 <p className="font-mono text-radoc-gold-soft mb-1">(91) 9 8156-3432</p>
                 <a
-                  href="https://wa.me/5591981563432?text=Olá! Gostaria de mais informações sobre radoc.pro"
+                  href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition text-xs font-semibold"

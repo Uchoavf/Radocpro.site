@@ -300,10 +300,49 @@ const RadocSchema = z.object({ /* ... */ })
 
 ## Segurança
 
+### Segredos — Regra de ouro
+- **Nunca** use prefixo `NEXT_PUBLIC_` para chaves de API, tokens, secrets
+- `NEXT_PUBLIC_` injeta o valor no bundle JavaScript do navegador → **visível para qualquer um**
+- Apenas use `NEXT_PUBLIC_` para valores públicos: URL do app, chave publishable do Stripe
+- Chaves de IA (`ANTHROPIC_API_KEY`) e secrets ficam sem prefixo → disponíveis apenas server-side
+
+### Arquitetura segura para chamadas de IA
+```
+Browser (NUNCA vê a chave)
+  → POST /api/ai (com PDF/dados)
+    → API Route server-side (chave no process.env)
+      → Claude/Gemini API
+    ← resposta JSON
+  ← resultado
+```
+
+### Headers de segurança (aplicados via next.config.js)
+- `Content-Security-Policy` — bloqueia XSS, inline scripts não autorizados
+- `X-Content-Type-Options: nosniff` — previne MIME sniffing
+- `X-Frame-Options: DENY` — previne clickjacking
+- `Referrer-Policy: strict-origin-when-cross-origin` — limita vazamento de URL
+- `Permissions-Policy` — restringe API do navegador (câmera, microfone, geolocalização)
+- HSTS via Vercel — força HTTPS
+
+### Rate limiting
+- API Route `/api/ai` tem rate limit de 10 req/min por IP
+- Impede abuso e protege custos de API de IA
+
+### Validação de input
+- API Route `/api/ai` valida:
+  - Tipo de conteúdo (multipart/form-data)
+  - Tamanho máximo de arquivo (25MB)
+  - MIME types permitidos (PDF, PNG, JPEG, WebP)
+  - Tamanho máximo de prompt (50.000 caracteres)
+
 ### Fase 1
-- ✅ HTTPS obrigatório
-- ✅ Validação de chave API no frontend
-- ✅ Nenhum dado sensível em localStorage
+- ✅ HTTPS obrigatório (Vercel)
+- ✅ CSP + headers de segurança
+- ✅ API proxy server-side (chave nunca exposta)
+- ✅ Rate limiting nas API routes
+- ✅ Validação de input nas API routes
+- ✅ Nenhum dado sensível em localStorage (apenas estado do RADOC)
+- ✅ Número WhatsApp centralizado em variável de ambiente
 
 ### Fase 2+
 - 🔒 JWT com expiração
