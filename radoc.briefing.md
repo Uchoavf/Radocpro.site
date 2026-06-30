@@ -319,11 +319,20 @@ vercel
 - [x] SSH configurado
 - [x] Design assets adicionados (Story, Logo, Profile, Docs)
 - [x] Favicon Rp criado e centralizado
+- [x] Deploy Vercel — https://radoc-service.vercel.app
+- [x] Fontes migradas para next/font/google (self-hosted)
+- [x] Páginas sobre/contato redesenhadas (design system)
+- [x] Blindagem de segurança — headers CSP, X-Frame, rate limit
+- [x] API Route /api/ai com proxy seguro (chave nunca exposta)
+- [x] Constantes centralizadas (lib/constants.ts)
+- [x] robots.txt + sitemap.xml
+- [x] Documentação de segurança (SECURITY.md)
+- [x] Penetration test — 0 vulnerabilidades críticas
 
 ### ⏳ Próximos passos (Fase 2)
 - [ ] Integrar RADOC App (/app) — iframe ou React component
-- [ ] Testes de usabilidade (UI)
-- [ ] Deploy em Vercel
+- [ ] Implementar extração de dados via IA (API /api/ai já pronta)
+- [ ] Geração de PDF do RADOC
 - [ ] Apontar domínio radoc.pro
 - [ ] Backend + Banco de dados (PostgreSQL)
 - [ ] Autenticação (NextAuth)
