@@ -1,6 +1,6 @@
 'use client'
 
-import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE_DEFAULT, whatsappLink } from '@/src/lib/constants'
+import { whatsappLink } from '@/src/lib/constants'
 
 interface WhatsAppButtonProps {
   variant?: 'icon' | 'button' | 'floating'

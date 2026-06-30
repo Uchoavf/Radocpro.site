@@ -1,5 +1,6 @@
-export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5591981563432'
+const WHATSAPP_NUMBER = '5591981563432'
+
+export const WHATSAPP_FORMATTED = '(91) 9 8156-3432'
 
 export const WHATSAPP_MESSAGE_DEFAULT =
   'Olá! Gostaria de mais informações sobre radoc.pro'
