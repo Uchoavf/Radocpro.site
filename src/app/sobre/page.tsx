@@ -6,34 +6,46 @@ export default function SobrePage() {
     <>
       <Header />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto px-4 py-12">
-          <h1 className="text-4xl font-bold mb-8">Sobre RADOC Service</h1>
+        <div className="max-w-4xl mx-auto px-4 py-16">
+          <h1 className="font-serif text-5xl font-bold text-radoc-green mb-4">Sobre o radoc.pro</h1>
+          <p className="text-lg text-radoc-ink mb-12">
+            Plataforma independente para preenchimento automatizado de RADOCs de docentes universitários.
+          </p>
 
-          <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
-            <p>
-              RADOC Service é uma plataforma desenvolvida para simplificar o processo de preenchimento
-              do Relatório de Atividades Docentes (RADOC) da Universidade Federal Rural da Amazônia (UFRA).
-            </p>
+          <div className="space-y-8 text-radoc-ink leading-relaxed">
+            <div>
+              <h2 className="font-serif text-3xl font-bold text-radoc-green mb-4">Missão</h2>
+              <p>
+                Automatizar e simplificar o processo de preenchimento de RADOCs usando inteligência artificial,
+                permitindo que docentes dediquem mais tempo ao que realmente importa: ensino, pesquisa e extensão.
+              </p>
+            </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8">Missão</h2>
-            <p>
-              Automatizar e simplificar o processo de preenchimento de RADOCs usando inteligência artificial,
-              permitindo que docentes dediquem mais tempo ao que realmente importa: ensino, pesquisa e extensão.
-            </p>
+            <div className="border-t border-radoc-gold pt-8">
+              <h2 className="font-serif text-3xl font-bold text-radoc-green mb-4">Tecnologia</h2>
+              <p>
+                Utilizamos IA avançada para extrair inteligentemente dados de comprovantes em PDF,
+                validar informações e gerar relatórios completos conforme as normas de cada instituição.
+              </p>
+            </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8">Tecnologia</h2>
-            <p>
-              Utilizamos a Claude API da Anthropic para extrair inteligentemente dados de comprovantes em PDF,
-              validar informações e gerar relatórios completos conforme as normas da UFRA.
-            </p>
+            <div className="border-t border-radoc-gold pt-8">
+              <h2 className="font-serif text-3xl font-bold text-radoc-green mb-4">Privacidade e Segurança</h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Dados processados localmente no navegador (localStorage)</li>
+                <li>Conexão segura com API de IA (HTTPS)</li>
+                <li>Nenhum armazenamento de dados em servidores próprios</li>
+                <li>Você controla suas informações</li>
+              </ul>
+            </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8">Privacidade e Segurança</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Dados processados localmente no navegador (localStorage)</li>
-              <li>Conexão segura com API Claude (HTTPS)</li>
-              <li>Nenhum armazenamento de dados em servidores nossos (fase 1)</li>
-              <li>Você controla sua chave de API</li>
-            </ul>
+            <div className="border-t border-radoc-gold pt-8">
+              <h2 className="font-serif text-3xl font-bold text-radoc-green mb-4">Serviço Independente</h2>
+              <p>
+                O radoc.pro não é afiliado a nenhuma instituição de ensino superior.
+                Atendemos docentes de qualquer universidade que utilize o sistema RADOC.
+              </p>
+            </div>
           </div>
         </div>
       </main>

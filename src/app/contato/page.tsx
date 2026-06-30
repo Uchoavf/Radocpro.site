@@ -62,7 +62,7 @@ export default function ContatoPage() {
 
                 <div className="bg-radoc-cream-2 p-6 rounded-lg">
                   <p className="text-sm text-radoc-green-deep font-mono">
-                    📌 Dica: Salve nosso número (91) 9 8156-3432 no seu contato como "radoc.pro" para
+                    📌 Dica: Salve nosso número (91) 9 8156-3432 no seu contato como &ldquo;radoc.pro&rdquo; para
                     localizar rapidamente.
                   </p>
                 </div>

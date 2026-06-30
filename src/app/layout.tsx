@@ -1,11 +1,38 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Cormorant_Garamond, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+})
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'radoc.pro — Preencha seu RADOC automaticamente',
   description: 'Serviço independente de preenchimento de RADOCs. Extraímos dados de comprovantes com IA e geramos relatórios completos prontos para envio.',
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -19,12 +46,8 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#1c5640" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="font-sans">
+      <body className={`${cormorantGaramond.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable} font-sans`}>
         <div className="min-h-screen flex flex-col bg-radoc-cream text-radoc-ink">
           {children}
         </div>

@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-radoc-cream-2">
               <li><a href="/app" className="hover:text-radoc-gold transition">App</a></li>
               <li><a href="/como-funciona" className="hover:text-radoc-gold transition">Como funciona</a></li>
-              <li><a href="/precos" className="hover:text-radoc-gold transition">Preços</a></li>
+              <li><a href="/contato" className="hover:text-radoc-gold transition">Preços</a></li>
             </ul>
           </div>
 
@@ -40,7 +40,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-radoc-cream-2">
               <li><a href="/sobre" className="hover:text-radoc-gold transition">Sobre</a></li>
               <li><a href="/contato" className="hover:text-radoc-gold transition">Contato</a></li>
-              <li><a href="/privacidade" className="hover:text-radoc-gold transition">Privacidade</a></li>
             </ul>
           </div>
 
